@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Calculate the area of a house app!");
+            List<String> room_list = new List<String>();
+            List<double> size_list = new List<double>();
+            double room_length;
+            double room_width;
+            double total = 0;
+            int i = 0;
+            Console.WriteLine("Please enter room or 'exit' :");
+            string line = Console.ReadLine();
+            room_list.Add(line);
+            while (room_list[i].ToLower() != "exit")
+            {
+                Console.WriteLine("Please enter length of room:");
+                room_length = int.Parse(Console.ReadLine());
+                Console.WriteLine("Please enter width of room:");
+                room_width = int.Parse(Console.ReadLine());
+                size_list.Add(room_length * room_width);
+                i++;
+                Console.WriteLine("Please enter room or 'exit' :");
+                line = Console.ReadLine();
+                room_list.Add(line);
+            }
+            Console.WriteLine("");
+            Console.WriteLine("Room              Size(sq ms)");
+            for (int j = 0; j < i; j++)
+            {
+                Console.Write(room_list[j]);
+                for (int k = 0; k < 20 - room_list[j].Length; k++)
+                {
+                    Console.Write(" ");
+                }
+                Console.WriteLine(size_list[j]);
+                total += size_list[j];
+            }            
+            Console.Write("Total");            
+            for (int k = 0; k < 15; k++)
+            {
+                Console.Write(" ");
+            }
+            Console.WriteLine(total);
+            Console.WriteLine("");
+            Console.WriteLine("Press any key to exit:");
+            Console.ReadKey();
+        }
+    }
+}
