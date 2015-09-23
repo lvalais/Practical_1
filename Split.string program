@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SetOfNumbers
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter a set of numbers seperated by commas :");
+            string line=Console.ReadLine();
+            string[] result = line.Split(',');
+            int total = 0;
+            int number;
+            foreach (string x in result)
+            {
+                Console.WriteLine(Int32.TryParse(x,out number));
+                total += number;
+            }
+            Console.WriteLine("Total sum is :" + total);
+            Console.WriteLine("Press any key to exit");
+            Console.ReadKey();            
+        }
+    }
+}
