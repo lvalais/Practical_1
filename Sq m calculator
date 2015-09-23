@@ -11,32 +11,39 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             Console.WriteLine("Calculate the area of a house app!");
+            // Create one list for rooms and one for size
             List<String> room_list = new List<String>();
             List<double> size_list = new List<double>();
             double room_length;
             double room_width;
             double total = 0;
+            // variable i will calculate the number of rooms the user will enter
             int i = 0;
             Console.WriteLine("Please enter room or 'exit' :");
             string line = Console.ReadLine();
+            // Adding the user input to the list
             room_list.Add(line);
+            // checking for word exit 
             while (room_list[i].ToLower() != "exit")
             {
                 Console.WriteLine("Please enter length of room:");
                 room_length = int.Parse(Console.ReadLine());
                 Console.WriteLine("Please enter width of room:");
                 room_width = int.Parse(Console.ReadLine());
+                // adding to the size list the sq meters of the room
                 size_list.Add(room_length * room_width);
                 i++;
                 Console.WriteLine("Please enter room or 'exit' :");
                 line = Console.ReadLine();
                 room_list.Add(line);
             }
+            // Just a line space
             Console.WriteLine("");
             Console.WriteLine("Room              Size(sq ms)");
             for (int j = 0; j < i; j++)
             {
                 Console.Write(room_list[j]);
+                // calculate the length of the room word  in order to allign the size later.
                 for (int k = 0; k < 20 - room_list[j].Length; k++)
                 {
                     Console.Write(" ");
